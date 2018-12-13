@@ -1,0 +1,140 @@
+---
+layout: default
+title: Priartem
+pagination: 
+  enabled: true
+
+---
+<header>
+
+<div class="container">
+		<div class="column">
+			<div>
+			<h1 class="editable">Priartem</h1>
+				<p class="editable">Pour rassembler, informer, agir sur les risques liées aux technologies électromagnétiques.</p>
+				<div class="button">
+					<a href="#donate">Adhérer</a>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<img src="/images/sheep.jpg" alt="Sheep">
+		</div>
+	</div>
+</header>
+
+
+
+<div class="darker">
+	<div class="container">
+		<h2 class="editable">(dernières nouvelles…)</h2>
+		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a></p>
+		<div class="posts">
+			{% for post in paginator.posts %}
+				<div class="post">
+
+				  <a href="{{ post.url | prepend: site.baseurl }}"><div class="image"  style="background-image: url({{ post.featured_image}})"></div></a>
+					<div class="post-content">
+						<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
+						<h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+
+						{{ post.excerpt }}
+						<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+</div>
+</div>
+
+<div class="container">
+	<h2 class="editable" style="text-align: center;">Priartem, pour … </h2>
+
+	<ul class="thirds">
+		<li>
+			<div class="image">{% include icons/site.html icon="population" %}</div>
+			<h3 class="editable">Rassembler</h3>
+			<p class="editable">Fédérer les énergies de tous ceux qui commencent à comprendre les enjeux de la problématique ondes / santé...</p>
+			<p><a href="">en savoir plus…</a></p>
+		</li>
+
+		<li>
+			<div class="image">{% include icons/site.html icon="economy" %}</div>
+			<h3 class="editable">Informer</h3>
+			<p class="editable">Assurer une veille dans le champ des études scientifiques, dans le domaine juridique, et porter une parole éclairée dans le champ de la décision publique...</p>
+			<p><a href="">en savoir plus…</a></p>
+		</li>
+
+		<li>
+			<div class="image">{% include icons/site.html icon="conditions" %}</div>
+			<h3 class="editable">Agir </h3>
+			<p class="editable">Structurer l’action collective afin de se prémunir du risque électromagnétique, faire entendre la voix de ceux qui souffrent déja des ondes — les électrosensibles — et cultiver l’espoir d’un avenir viable pour tous...</p>
+			<p><a href="">en savoir plus…</a></p>
+		</li>
+	</ul>
+</div>
+
+<!-- <div class="container"> -->
+<!-- 	<div class="columns"> -->
+<!-- 		<div> -->
+<!-- 			<img src="/images/sheep2.jpg" alt="Sheep"> -->
+<!-- 		</div> -->
+<!-- 		<div> -->
+<!-- 			<h2 class="editable">Our Mission</h2> -->
+
+<!-- 			<p class="editable">Leave no sheep behind. Our mission to give sheep the right to vote and have them represented in parliament. For too long sheep have been exploited for their warm wool and delicious meat. It's time to put our hooves down and baa for what's right. Give sheep the vote!</p> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+
+
+<div class="container">
+	<hr>
+	<blockquote>
+		<p class="quote editable">The ultimate measure of a sheep is not where he stands in moments of comfort and convenience, but where he stands at times of challenge and controversy.</p>
+		<div class="attribute">
+			<p class="meta">
+				<span class="image"><img class="editable" src="{{ site.baseurl }}/images/wooly.jpg" alt="Wooly"></span>
+				<span class="author editable"><strong>Wooly McBaa</strong></span>
+			</p>
+		</div>
+	</blockquote>
+</div>
+
+<div class="darker">
+	<div class="container">
+		<h2 class="editable">Informez-vous</h2>
+		<p class="editable" style="text-align: center;">Inscrivez-vous à notre lettre mensuelle</p>
+		<form action="{{ site.newsletter_action }}" method="post">
+			<input type="text" name="EMAIL" placeholder="Email">
+			<input type="submit" value="Sign up"/>
+		</form>
+	</div>
+</div>
+
+<div class="container" id="donate">
+	<h2 class="editable">Faire un don</h2>
+	<div class="donate">
+		{{ site.donation_embed }}
+	</div>
+</div>
+
+
+
+{% if paginator.total_pages > 1 %}
+<ul>
+  {% if paginator.previous_page %}
+  <li>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Après</a>
+  </li>
+  {% endif %}
+  {% if paginator.next_page %}
+  <li>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Avant</a>
+  </li>
+  {% endif %}
+</ul>
+{% endif %}
+		
+	</div>
+</div>

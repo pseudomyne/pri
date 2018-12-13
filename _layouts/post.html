@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<section>
+  <div class="container">
+
+        <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %b %Y" }}</time>
+
+	    <header class="post-header">
+	      <h2 class="post-title" itemprop="name headline">
+		
+{{ page.title }}</h2>
+</header>		
+		{{ content }}
+	</div>
+</section>
